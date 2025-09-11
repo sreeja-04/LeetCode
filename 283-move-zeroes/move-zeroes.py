@@ -7,15 +7,23 @@ class Solution:
         n = len(nums)
         if n==1 or n==0:
             return nums
-        count = 0
+        j = 0
         i=0
-        while n>0:
-            if nums[i] == 0:
-                nums.remove(nums[i])
-                nums.append(0)
+        # while n>0:
+        #     if nums[i] == 0:
+        #         nums.remove(nums[i])
+        #         nums.append(0)
             
-            i+=1
-            n-=1
+        #     i+=1
+        #     n-=1
+
+        for i in range(n):
+            if nums[i] != 0:
+                nums[j] = nums[i]
+                j+=1
+        
+        for i in range(j, n):
+            nums[i] = 0
         
         return nums
 
